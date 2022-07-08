@@ -14,6 +14,8 @@ class HomeController extends ChangeNotifier {
   double notaAP3 = 0.0;
 
   double get getResultIMC => _resultIMC;
+  double get getAverageStudent =>
+      double.parse(averageScoreStudent.toStringAsFixed(2));
 
   double calculateMedia() {
     averageScoreStudent = (notaAP1 + notaAP2 + notaAP3) / 3;
@@ -34,14 +36,12 @@ class HomeController extends ChangeNotifier {
     return StatusStudent.reproved;
   }
 
-  calculateIMC(double height, double weight) {
-    personModel.height = height;
-    personModel.weight = weight;
+  calculateIMC() {
     _resultIMC = double.parse(personModel.calculateIMC().toStringAsFixed(2));
     notifyListeners();
   }
 
   bool isOlder() {
-    return personModel.age >= 18;
+    return personModel.age! >= 18;
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:testes_unitarios_flutter/controllers/home_controller.dart';
+import 'package:testes_unitarios_flutter/models/person_mode.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -57,8 +58,13 @@ class _MyHomePageState extends State<MyHomePage> {
               double.parse(homeController.inputHeightController.text);
           double weight =
               double.parse(homeController.inputWeightController.text);
-
-          homeController.calculateIMC(height, weight);
+          homeController.personModel = PersonModel(
+            age: 0,
+            height: height,
+            name: '',
+            weight: weight,
+          );
+          homeController.calculateIMC();
         },
         child: const Icon(Icons.adb_sharp),
       ),

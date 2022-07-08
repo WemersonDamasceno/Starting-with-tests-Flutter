@@ -25,17 +25,14 @@ void main() {
   }); //testes media aritmética
 
   test("IMC is 24.69", () {
-    homeController.calculateIMC(
-      homeController.personModel.height,
-      homeController.personModel.weight,
-    );
+    homeController.calculateIMC();
     expect(homeController.getResultIMC, 24.69);
   });
 
   group("Student grades ", () {
     test("average score bigger then 7.00", () {
       homeController.calculateMedia();
-      expect(homeController.averageScoreStudent.toStringAsFixed(2), "7.00");
+      expect(homeController.getAverageStudent, 7.00);
     });
 
     test("will make recovery ", () {
